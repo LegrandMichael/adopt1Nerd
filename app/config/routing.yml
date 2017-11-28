@@ -1,0 +1,5 @@
+adopt1_nerd:
+    resource: "@adopt1NerdBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
