@@ -74,5 +74,5 @@ fos_user:
     firewall_name: main
     user_class: adopt1Nerd\Bundle\Entity\User
     from_email: 
-        adress: "%mailer_user%"
+        address: "%mailer_user%"
         sender_name: "%mailer_user%"
