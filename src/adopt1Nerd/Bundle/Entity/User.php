@@ -6,6 +6,11 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+
+/**
  * User
  *
  * @ORM\Table(name="user")
@@ -21,7 +26,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
+    
+    public function __construct()
+    {
+        parent::construct();
+    }
     
     /**
      * @var string
@@ -85,11 +94,7 @@ class User extends BaseUser
      *
      * @return int
      */
-    
-    public function __construct()
-    {
-        parent::construct();
-    }
+
     public function getId()
     {
         return $this->id;
