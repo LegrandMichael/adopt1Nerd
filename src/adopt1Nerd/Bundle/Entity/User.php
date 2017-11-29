@@ -2,15 +2,16 @@
 
 namespace adopt1Nerd\Bundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
+ * User
  *
- * @ORM\Table(name="post")
- * @ORM\Entity(repositoryClass="adopt1Nerd\Bundle\Repository\PostRepository")
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="adopt1Nerd\Bundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,70 +20,76 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
+    
     /**
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
      */
     private $lastName;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
      */
     private $firstName;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
      */
     private $mail;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="phoneNumber", type="string", length=255)
      */
     private $phoneNumber;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="nickName", type="string", length=255)
      */
     private $nickName;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="avatar", type="string", length=255, unique=true)
      */
     private $avatar;
-
+    
     /**
      * @var int
      *
      * @ORM\Column(name="age", type="integer")
      */
     private $age;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="gender", type="string", length=255)
      */
     private $gender;
-
-
+    
+    
     /**
      * Get id
      *
      * @return int
      */
+    
+    public function __construct()
+    {
+        parent::construct();
+    }
     public function getId()
     {
         return $this->id;
